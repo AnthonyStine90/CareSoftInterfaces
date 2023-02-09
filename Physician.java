@@ -43,5 +43,13 @@ public class Physician extends User implements HIPAACompliantUser {
   }
 
   // TO DO: Setters & Getters
+  public ArrayList<String> getPatientNotes() {
+    return this.patientNotes;
+  }
+
+  public void setPatientNotes(ArrayList<String> patientNotes) {
+    this.patientNotes = patientNotes;
+  }
+
 
 }

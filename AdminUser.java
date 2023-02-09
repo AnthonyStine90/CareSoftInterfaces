@@ -6,13 +6,13 @@ public class AdminUser extends User implements HIPAACompliantAdmin, HIPAAComplia
   // Inside class:
 
   private String role;
-  private ArrayList<String> securityIncidents;
+  private ArrayList<String> securityIncidents = new ArrayList<>();
 
   // TO DO: Implement a constructor that takes an ID and a role
   public AdminUser(Integer id, String role) {
     super(id);
     this.role = role;
-    // TODO Auto-generated constructor stub
+
   }
 
   // TO DO: Implement HIPAACompliantUser!
@@ -43,17 +43,37 @@ public class AdminUser extends User implements HIPAACompliantAdmin, HIPAAComplia
   @Override
   public boolean accessAuthorized(Integer confirmedAuthID) {
     if (confirmedAuthID.equals(this.id)) {
-
       return true;
     } else {
-      
+      authIncident();
+      System.out.println(securityIncidents);
+
       return false;
     }
   }
 
   @Override
   public ArrayList<String> reportSecurityIncidents() {
-    
+
     return securityIncidents;
   }
+
+  // TO DO: Setters & Getters
+
+  public String getRole() {
+    return this.role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+  public ArrayList<String> getSecurityIncidents() {
+    return this.securityIncidents;
+  }
+
+  public void setSecurityIncidents(ArrayList<String> securityIncidents) {
+    this.securityIncidents = securityIncidents;
+  }
+
 }
